@@ -1,9 +1,8 @@
-import requests
-import pandas as pd
-import numpy as np
-from datetime import datetime, timedelta
 import time
-import json
+from datetime import datetime, timedelta
+
+import pandas as pd
+import requests
 
 
 class NBPFetcher:
@@ -12,9 +11,6 @@ class NBPFetcher:
     """
 
     def __init__(self):
-        """
-        Inicjalizacja fetcher'a NBP
-        """
         self.base_url = 'https://api.nbp.pl/api/exchangerates/rates/'
         self.data = None
 
@@ -97,6 +93,10 @@ class NBPFetcher:
         start_date (str): Data początkowa YYYY-MM-DD
         end_date (str): Data końcowa YYYY-MM-DD
         table (str): Tabela NBP ('a', 'b', 'c') - domyślnie 'a'
+        Źródło: https://api.nbp.pl
+        Tabela A kursów średnich walut obcych,
+        Tabela B kursów średnich walut obcych,
+        Tabela C kursów kupna i sprzedaży walut obcych;
         """
         print(f"=== POBIERANIE DANYCH HISTORYCZNYCH {currency_code.upper()} ===")
         print(f"Tabela: {table.upper()}")
@@ -112,7 +112,7 @@ class NBPFetcher:
             print(f"Łączna liczba dni: {total_days}")
 
             if total_days > 93:
-                print("⚠ Okres dłuższy niż 93 dni - będzie podzielony na części")
+                print("⚠ Okres dłuższy niż 93 dni - będzie podzielony na części (przez limit API NBP)")
 
             # Lista do przechowywania wszystkich danych
             all_data = []
@@ -129,7 +129,7 @@ class NBPFetcher:
                 start_str = current_start.strftime('%Y-%m-%d')
                 end_str = current_end.strftime('%Y-%m-%d')
 
-                # URL dla API NBP
+                # Tworzenie URL dla API NBP
                 url = f"{self.base_url}{table}/{currency_code}/{start_str}/{end_str}/?format=json"
 
                 try:

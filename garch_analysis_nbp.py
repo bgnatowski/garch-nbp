@@ -1,16 +1,15 @@
 # Import wszystkich potrzebnych bibliotek
-import pandas as pd  # Obsługa danych tabelarycznych
-import numpy as np  # Operacje matematyczne na macierzach
-import matplotlib.pyplot as plt  # Tworzenie wykresów
-import seaborn as sns  # Zaawansowane wizualizacje
-from arch import arch_model  # Modelowanie ARCH/GARCH
-from sklearn.metrics import mean_squared_error, mean_absolute_error  # Metryki błędów
-from scipy import stats  # Testy statystyczne
-import statsmodels.api as sm  # Modele statystyczne
-from statsmodels.stats.diagnostic import het_breuschpagan  # Test Breuscha-Pagana
 import warnings  # Kontrola ostrzeżeń
 
-# Import naszego NBP fetcher'a
+import matplotlib.pyplot as plt  # Tworzenie wykresów
+import numpy as np  # Operacje matematyczne na macierzach
+import pandas as pd  # Obsługa danych tabelarycznych
+import statsmodels.api as sm  # Modele statystyczne
+from arch import arch_model  # Modelowanie ARCH/GARCH
+from scipy import stats  # Testy statystyczne
+from sklearn.metrics import mean_squared_error, mean_absolute_error  # Metryki błędów
+from statsmodels.stats.diagnostic import het_breuschpagan  # Test Breuscha-Pagana
+
 from nbp_fetcher import NBPFetcher
 
 warnings.filterwarnings('ignore')  # Ukrycie ostrzeżeń dla czystości outputu
@@ -20,18 +19,13 @@ plt.style.use('seaborn-v0_8')
 plt.rcParams['figure.figsize'] = (12, 8)
 plt.rcParams['font.size'] = 10
 
-
 class GARCHAnalysisNBP:
     """
-    Klasa do kompleksowej analizy modelu GARCH dla kursów walutowych
-    z wykorzystaniem danych z API NBP
+    Klasa do analizy modelu GARCH dla kursów walutowych z wykorzystaniem danych z API NBP
     """
 
     def __init__(self, currency_code='eur', start_date='2023-01-01',
                  end_date='2024-12-31', table='a', csv_file=None):
-        """
-        Inicjalizacja klasy z podstawowymi parametrami
-        """
         self.currency_code = currency_code.lower()  # Kod waluty (eur, usd, gbp, etc.)
         self.start_date = start_date  # Data początkowa pobierania danych
         self.end_date = end_date  # Data końcowa pobierania danych
@@ -46,11 +40,11 @@ class GARCHAnalysisNBP:
 
     def setup_data_source(self):
         """
-        Konfiguracja źródła danych - API NBP lub plik CSV
+        Konfiguracja źródła danych - API NBP lub plik CSV (jesli wczesniej zapisano dane)
         """
         print("=== KONFIGURACJA ŹRÓDŁA DANYCH ===")
 
-        # Jeśli podano plik CSV, próbujemy z niego
+        # Jeśli podano plik CSV, wczytujemy z niego
         if self.csv_file:
             print(f"Próba wczytania danych z pliku CSV: {self.csv_file}")
             try:
@@ -321,7 +315,7 @@ class GARCHAnalysisNBP:
         else:
             print("⚠ Ostrzeżenie: Warunek stacjonarności niespełniony!")
 
-        # Interpretacja parametrów w kontekście polskiej waluty
+        # Interpretacja parametrów w kontekście PLN
         print(f"\nInterpretacja parametrów dla kursu {self.currency_pair}:")
         print(f"- α = {alpha:.4f}: Siła reakcji na nowe szoki (np. decyzje NBP, dane makro)")
         print(f"- β = {beta:.4f}: Trwałość zmienności (pamięć rynku)")
