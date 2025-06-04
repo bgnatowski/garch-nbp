@@ -1,0 +1,34 @@
+ZOPTYMALIZOWANY MODEL GARCH EUR/PLN (NBP)
+============================================================
+
+Okres analizy: 2019-01-01 - 2024-12-31
+Outlierów usuniętych: 38
+Najlepszy model: GARCH(1, 1) z rozkładem t
+Safe MAPE: 49.95%
+Symmetric MAPE: 57.42%
+
+                          Zero Mean - GARCH Model Results                           
+====================================================================================
+Dep. Variable:                        Close   R-squared:                       0.000
+Mean Model:                       Zero Mean   Adj. R-squared:                  0.001
+Vol Model:                            GARCH   Log-Likelihood:               -342.598
+Distribution:      Standardized Student's t   AIC:                           693.196
+Method:                  Maximum Likelihood   BIC:                           714.486
+                                              No. Observations:                 1514
+Date:                      Wed, Jun 04 2025   Df Residuals:                     1514
+Time:                              22:26:19   Df Model:                            0
+                               Volatility Model                              
+=============================================================================
+                 coef    std err          t      P>|t|       95.0% Conf. Int.
+-----------------------------------------------------------------------------
+omega      2.9084e-03  1.731e-03      1.681  9.283e-02 [-4.834e-04,6.300e-03]
+alpha[1]       0.1339  3.091e-02      4.332  1.476e-05    [7.333e-02,  0.195]
+beta[1]        0.8460  4.183e-02     20.227  5.708e-91      [  0.764,  0.928]
+                              Distribution                              
+========================================================================
+                 coef    std err          t      P>|t|  95.0% Conf. Int.
+------------------------------------------------------------------------
+nu            13.4955      4.381      3.081  2.064e-03 [  4.910, 22.081]
+========================================================================
+
+Covariance estimator: robust
