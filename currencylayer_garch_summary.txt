@@ -1,0 +1,23 @@
+PODSUMOWANIE MODELU GARCH PLN/EUR (CurrencyLayer)
+==================================================
+
+                       Zero Mean - GARCH Model Results                        
+==============================================================================
+Dep. Variable:                  Close   R-squared:                       0.000
+Mean Model:                 Zero Mean   Adj. R-squared:                  0.031
+Vol Model:                      GARCH   Log-Likelihood:               -1.21797
+Distribution:                  Normal   AIC:                           8.43594
+Method:            Maximum Likelihood   BIC:                           12.8332
+                                        No. Observations:                   32
+Date:                Wed, Jun 04 2025   Df Residuals:                       32
+Time:                        20:47:45   Df Model:                            0
+                               Volatility Model                              
+=============================================================================
+                 coef    std err          t      P>|t|       95.0% Conf. Int.
+-----------------------------------------------------------------------------
+omega      9.4320e-03  8.657e-03      1.090      0.276 [-7.535e-03,2.640e-02]
+alpha[1]   2.1253e-12  1.729e-02  1.229e-10      1.000 [-3.389e-02,3.389e-02]
+beta[1]        0.8613      0.156      5.528  3.247e-08      [  0.556,  1.167]
+=============================================================================
+
+Covariance estimator: robust
