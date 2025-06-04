@@ -1,0 +1,26 @@
+PODSUMOWANIE MODELU GARCH EUR/PLN (NBP)
+============================================================
+
+Okres analizy: 2022-01-01 - 2025-06-01
+Liczba obserwacji: 858
+
+                       Zero Mean - GARCH Model Results                        
+==============================================================================
+Dep. Variable:                  Close   R-squared:                       0.000
+Mean Model:                 Zero Mean   Adj. R-squared:                  0.001
+Vol Model:                      GARCH   Log-Likelihood:               -342.857
+Distribution:                  Normal   AIC:                           691.715
+Method:            Maximum Likelihood   BIC:                           705.978
+                                        No. Observations:                  858
+Date:                Wed, Jun 04 2025   Df Residuals:                      858
+Time:                        21:14:31   Df Model:                            0
+                               Volatility Model                              
+=============================================================================
+                 coef    std err          t      P>|t|       95.0% Conf. Int.
+-----------------------------------------------------------------------------
+omega      8.6838e-03  1.343e-02      0.647      0.518 [-1.764e-02,3.500e-02]
+alpha[1]       0.1146  9.801e-02      1.169      0.242   [-7.752e-02,  0.307]
+beta[1]        0.8287      0.182      4.566  4.978e-06      [  0.473,  1.184]
+=============================================================================
+
+Covariance estimator: robust
