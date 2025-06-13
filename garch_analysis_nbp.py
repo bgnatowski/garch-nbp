@@ -1,4 +1,3 @@
-# Import wszystkich potrzebnych bibliotek
 import warnings  # Kontrola ostrzeżeń
 
 import matplotlib.pyplot as plt  # Tworzenie wykresów
