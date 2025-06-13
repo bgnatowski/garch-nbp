@@ -23,6 +23,28 @@ plt.rcParams['font.size'] = 10
 class OptimizedGARCHAnalysisNBP:
     """
     Zoptymalizowana klasa do analizy modelu GARCH
+    Optymalizacja:
+    1. Preprocessing i oczyszczanie danych:
+        - Wykrywanie i usuwanie outlierów
+        - Zastosowane metody czyszczenia:
+            Winsoryzacja: Zastępowanie wartości ekstremalnych granicami IQR
+            Usuwanie: Całkowite usunięcie outlierów
+            Zastępowanie medianą/średnią: Podmiana wartości ekstremalnych
+    2. Test stacjonarności
+    3. Optymalizacja parametrów modelu
+        - Automatyczny Grid Search
+        - Testowane kombinacje:
+            Parametry p, q: od (1,1) do (2,2)
+            Rozkłady: normalny, t-Studenta
+            Kryteria selekcji: AIC (Akaike Information Criterion), BIC (Bayesian Information Criterion)
+        - Sprawdzanie stabilności modelu
+    3. Ulepszenia w walidacji modelu
+        - Bezpieczne obliczenie MAPE
+        - Symetryczne MAPE
+        - Rolling Window Validation
+    4. Stabilizacja obliczeń i zarządzanie błędami
+        - Lepsze zarządzanie długości okien
+        - Filtrowanie ekstremalnych prognoz
     Kluczowe osiągnięcia:
         - MAPE spadło z bardzo duzych % do 50% - gigantyczna poprawa
         - Model znalazł optymalne parametry automatycznie
